@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Main {
-
+	
 	private static String Titre;
 	private static String prix;
 	private static String Id;
@@ -18,21 +18,25 @@ public class Main {
 	   static final String QUERY = "SELECT *  FROM modetransport";
 
 	public static void main(String[] args)  {
-	
+		
 		 // Open a connection
 	      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 	         Statement stmt = conn.createStatement();
 	      ) {		      
 	         // Execute a query
 	         System.out.println("Inserting records into the table...");          
-	         String sql = "INSERT INTO modetransport VALUES (100, 'Car', 20)";
+	         String sql = "INSERT INTO modetransport VALUES (1, 'Car', 25)";
 	         stmt.executeUpdate(sql);
-	         sql = "INSERT INTO modetransport VALUES (101, 'Bus', 45)";
+	         System.out.println("****************************************");
+	         sql = "INSERT INTO modetransport VALUES (2, 'Bus', 50)";
 	         stmt.executeUpdate(sql);
-	         sql = "INSERT INTO modetransport VALUES (102, 'Taxi', 25)";
+	         System.out.println("****************************************");
+	         sql = "INSERT INTO modetransport VALUES (3, 'Taxi', 20)";
 	         stmt.executeUpdate(sql);
-	         sql = "INSERT INTO modetransport VALUES(103, 'Avion', 400)";
+	         System.out.println("****************************************");
+	         sql = "INSERT INTO modetransport VALUES(4, 'Avion', 500)";
 	         stmt.executeUpdate(sql);
+	         
 	         System.out.println("Inserted records into the table...");   	  
 	      } catch (SQLException e) {
 	         e.printStackTrace();
